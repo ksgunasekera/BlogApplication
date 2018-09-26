@@ -59,9 +59,10 @@ class PostsController extends Controller
         return $posts;
     }
 
-    public function post($id) {
+    public function find($id) {
         $post =DB::table('posts')->where('id','=',$id)->get();
         return $post;
+        
     }
     /**
      * Show the form for editing the specified resource.

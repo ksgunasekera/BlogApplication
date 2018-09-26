@@ -24,4 +24,6 @@ Route::get('/posts','PostsController@index');
 Route::get('/search/{id}','PostsController@show');
 Route::post('/createPost','PostsController@store');
 Route::post('/createComment','CommentController@store');
-Route::post('/post','PostsController@post');
+Route::get('/find/{id}','PostsController@find');
+Route::post('/comment','CommentController@store');
+Route::get('/showComments/{id}','CommentController@show');

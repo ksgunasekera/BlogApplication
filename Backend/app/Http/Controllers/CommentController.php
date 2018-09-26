@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -33,13 +35,14 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $comment = new Comment;
-        $comment->postid=$request->id;
+        $comment->postid=$request->postId;
         $comment->username=$request->username;
-        $comment->commentbody=$request->comment;
+        $comment->commentbody=$request->commentBody;
         $comment->save();
-        return $request->postid;
+        return 253;
+        
 
     }
     
@@ -51,8 +54,11 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $comments =DB::table('comments')->where('postid','=',$id)->get();
+
+        return $comments;
+        
     }
 
     /**
