@@ -28,3 +28,4 @@ Route::get('/find/{id}','PostsController@find');
 Route::post('/comment','CommentController@store');
 Route::get('/showComments/{id}','CommentController@show');
 Route::delete('/deletePost','PostsController@deletePost');
+Route::get('/editPost/{id}','PostsController@find');
