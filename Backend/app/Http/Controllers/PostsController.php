@@ -75,6 +75,15 @@ class PostsController extends Controller
         //
     }
 
+    public function deletePost(Request $request)
+    {
+        $id=$request->id;
+        $post= Post::find($id);
+        $post->delete();
+        return "Deleted";
+        
+    }
+
     /**
      * Update the specified resource in storage.
      *

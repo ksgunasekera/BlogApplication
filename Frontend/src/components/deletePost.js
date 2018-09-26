@@ -10,7 +10,17 @@ class DeletePost extends Component{
     }
 
     handleDelete() {
-        axios.delete('')
+        axios.delete('http://localhost:8000/api/deletePost',{
+            params:{
+                id:this.state.postId
+            }
+        }).then((res)=>{
+            console.log(res);
+            
+        });
+        return (
+            "Post Deleted"
+        )
     }
 
     render() {

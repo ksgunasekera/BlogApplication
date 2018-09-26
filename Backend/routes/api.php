@@ -27,3 +27,4 @@ Route::post('/createComment','CommentController@store');
 Route::get('/find/{id}','PostsController@find');
 Route::post('/comment','CommentController@store');
 Route::get('/showComments/{id}','CommentController@show');
+Route::delete('/deletePost','PostsController@deletePost');
