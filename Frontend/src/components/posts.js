@@ -6,6 +6,7 @@ import DeletePost from './deletePost';
 import EditPost from './editPost';
 
 import axios from 'axios';
+import Post from './post';
 
 class Posts extends Component {
     constructor(props){
@@ -63,23 +64,10 @@ class Posts extends Component {
                             <h3>{post.title}</h3>
                             <p>{post.body}</p>
                             <Link to={`/editPost/${post.id}`}>Edit</Link><br />
-                            <Link to={`/deletePost/${post.id}`}>Delete</Link>
-                            
+                            <Link to={`/deletePost/${post.id}`}>Delete</Link><br />
+                            <Link to={`/viewPost/${post.id}`}>View</Link>
                         </div>
-                        <div className="col col-md-4">
-                                <form onSubmit={this.onSubmitComment.bind(this)}>
-                                <div className="form-group">
-                                    <input type="text" className="form-control" onChange={this.handleTitle(this.state.posts[i].id)} value={this.state.posts[i].title}/>
-                                    </div>
-                                    <div className="form-group">
-                                    <input type="text" className="form-control" onChange={(event) => this.handleUsername(event.target.value)} placeholder="username"/>
-                                    </div>
-                                    <div className="form-group">
-                                    <textarea rows="2" cols="20" onChange={(event) => this.handleComment(event.target.value)}/>
-                                    </div>
-                                    <input type="submit" value="Comment" className="btn btn-primary"/>
-                                </form>
-                            </div>
+                      
                              
                      </li>
                     )

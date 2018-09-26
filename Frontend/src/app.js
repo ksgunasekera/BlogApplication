@@ -7,6 +7,7 @@ import Posts from './components/posts';
 import Search from './components/search';
 import DeletePost from './components/deletePost';
 import EditPost from './components/editPost';
+import Post from './components/post';
 
 const NavBar =() => {
     return(
@@ -39,6 +40,7 @@ const NavBar =() => {
                 <Route path='/posts' component={Posts} />
                 <Route path='/search' component={Search} />
                 <Route exact path='/editPost/:id' component= {EditPost}/>
+                <Route path='/viewPost/:id' component={Post}/>
                 <Route path='/deletePost/:id' component={DeletePost} />
             </Switch>
         </div>
