@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/posts','PostsController@index');
 Route::get('/search/{id}','PostsController@show');
 Route::post('/createPost','PostsController@store');
+Route::post('/createComment','CommentController@store');
