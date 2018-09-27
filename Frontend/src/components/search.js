@@ -14,11 +14,22 @@ class Search extends Component{
         }
     }
     onSearch(term) {
-        this.setState({term});
-        axios.get(`http://localhost:8000/api/search/${term}`
-        ).then((response) =>{
-            this.setState({result:response.data})
-        })
+        this.setState({term},()=>{
+            if(term!=''){
+                axios.get(`http://localhost:8000/api/search/${term}`
+                ).then((response) =>{
+
+
+                console.log(response);
+                 this.setState({result:response.data})
+                })
+            }else{
+                this.setState({result:[]})
+            }
+            
+
+        });
+        
     }
 
     render() {
