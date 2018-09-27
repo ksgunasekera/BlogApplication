@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { BrowserRouter as Router, Switch, Route, Link ,Redirect} from 'react-router-dom';
-
+import {browserHistory} from 'react-router';
 import axios from 'axios';
 
 class CreatePost extends Component {
@@ -37,13 +37,14 @@ class CreatePost extends Component {
         }
         axios.post('http://localhost:8000/api/createPost',newPost).then((res) => {
             console.log(res);
+            browserHistory.push('/posts');
             })
     }
 
     render(){
         return(
             <div>
-                  <form onSubmit={this.onSubmit.bind(this)}>
+                  <form >
                       <div className="form-group">
                       <label>Title</label><br/>
                       <input type="text" className="form-control" placeholder="Title" id="title" onChange={(event) => this.handleTitle(event.target.value)}/>
@@ -62,7 +63,7 @@ class CreatePost extends Component {
                       <label>Body</label><br />
                       <textarea rows="5" cols="100" placeholder="Body" onChange={(event) => this.handleBody(event.target.value)}/>
                       </div>
-                      <input type="submit" value="Submit" className="btn btn-primary"/>
+                      <input type="submit" value="Submit" className="btn btn-primary" onClick={this.onSubmit.bind(this)}/>
                   </form>
             </div>
         )

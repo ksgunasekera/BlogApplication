@@ -54,7 +54,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($title)
-    {   
+    {  
+
         $posts = DB::table('posts')->where('title','like',$title.'%')->get();
         return $posts;
     }
@@ -96,6 +97,16 @@ class PostsController extends Controller
         //
     }
 
+    public function updatePost(Request $request)
+    {
+        $id = $request->postId;
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->category = $request->category;
+        $post->body = $request->postBody;
+        $post->save();
+        return "awa";
+    }
     /**
      * Remove the specified resource from storage.
      *

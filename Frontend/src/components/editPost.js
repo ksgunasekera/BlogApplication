@@ -24,19 +24,30 @@ class EditPost extends Component{
         });
     }
     handleTitle(title){
-
+        this.setState({title});
     }
 
     handleCategory(category){
-
+        this.setState({category});
     }
 
     handleBody(postBody){
-        
+        this.setState({postBody});
     }
 
-    handleGetPost() {
-        
+    onSubmit(event){
+        event.preventDefault();
+        let post = {
+            postId:this.state.postId,
+            title:this.state.title,
+            category:this.state.category,
+            postBody:this.state.postBody
+        }
+
+        console.log(post);
+        axios.post('http://localhost:8000/api/editPost',post).then((res) => {
+            console.log(res.data);;
+            })
     }
 
     render() {

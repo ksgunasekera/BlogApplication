@@ -1,16 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const HandleSearch = (props) => {
     return(
         <div>
             <ul className="col-md-8 list-group">
                 {props.posts.map((post,i)=>{
-                    console.log("As")
                     return(
 
                         <li key={i}>
                             <h3>{post.title}</h3>
-                            <p> {post.body}</p>
+                            <Link to={`/editPost/${post.id}`}>Edit</Link><br />
+                            <Link to={`/deletePost/${post.id}`}>Delete</Link><br />
+                            <Link to={`/viewPost/${post.id}`}>View</Link>
                         </li>
                     )
                     
